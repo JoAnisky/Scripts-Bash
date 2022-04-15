@@ -8,7 +8,25 @@ read -r -p "Entrez un nom pour votre fichier .css (sans ecrire .css) : " cssfile
 read -r -p "Entrez le titre de votre page html : " pagetitle
     # Et enfin on demande le chemin ou l'utilisateur souhaite enregistrer son fichier. Par défaut on se situe la ou est placé le script 
     # (POINTS D'AMELIORATION A FAIRE SUR CE SUJET !!!)
-read -r -p "Où voulez-vous enregistrer le fichier ? " workingdirectory
+read -r -p "Nommez le dossier où vous voulez enregistrer le projet ? " workingdirectory
+
+if [[ ! -d "$workingdirectory" ]]
+then
+        if [[ ! -L $workingdirectory ]]
+        then
+                read -r -p "Le dossier n'existe pas. Voulez-vous le créer ?" reponse
+                mkdir $dirname
+                echo "Directory created"  
+        fi
+else
+    echo "Directory exists" 
+fi
+
+
+read -r -p "Le dossier sera enregistrer dans $PWD/$workingdirectory [Y/N] : " reponse
+
+case "$reponse" in
+    oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) 
 # La suite (L14) crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
 # et génère la structure de base du site (L15 à L28) en remplissant les balises title et le href du fichier css
 cat << EOF > $workingdirectory/$htmlfilename.html
