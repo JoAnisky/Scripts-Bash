@@ -11,6 +11,10 @@ read -r -p "Entrez le titre de votre page html : " pagetitle
 
 
 #ajout d'un while pour demander un dossier de projet. Temps que l'utilisateur n'est pas en accord, on lui redemande.
+p=1
+while [ $p = 1 ]
+do
+
 i=1
 while [ $i = 1 ]
 do
@@ -22,8 +26,6 @@ then
                 read -r -p "Le dossier n'existe pas. Voulez-vous le créer [y/n]? : " reponse
                 case "$reponse" in
                     oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
-                    mkdir $workingdirectory
-                    echo "[x]Dossier créé"
                     i=0 ;;
                     non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" ;;
                     *) echo "Error syntax !" ;;
@@ -40,20 +42,18 @@ fi
 done
 
 #ajout d'une autre boucle while, pour la confirmation ultime
-p=1
-while [ $p = 1 ]
-do
 
 read -r -p "Les fichiers seront enregistrés dans $PWD/$workingdirectory. Voulez-vous continuer ? [Y/N] : " continuer
 
 case "$continuer" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
+        mkdir $workingdirectory
+        echo "[x]Dossier créé"
         p=0 ;;
         non | Non | NON | n | N | no | NO | No | n | N ) 
-        echo "Retour au choix de dossier"
-        i=1 ;;
-        *) echo "Error syntax !" 
-        i=1 ;;
+        echo "Retour au début.";;
+        *) 
+        echo "Error syntax !" ;;
 esac 
 
 done
