@@ -1,5 +1,5 @@
 #!bin/bash
-""
+
     # On commence par récuperer le nom du fichier .html que l'on stocke dans une variable $htmlfilename 
 read -r -p "Entrez un nom pour votre fichier .html (sans ecrire .html) : " htmlfilename
     # Idem pour le nom du fichier .css => variable $cssfilename
@@ -8,31 +8,45 @@ read -r -p "Entrez un nom pour votre fichier .css (sans ecrire .css) : " cssfile
 read -r -p "Entrez le titre de votre page html : " pagetitle
     # Et enfin on demande le chemin ou l'utilisateur souhaite enregistrer son fichier. Par défaut on se situe la ou est placé le script 
     # (POINTS D'AMELIORATION A FAIRE SUR CE SUJET !!!)
+
+i=1
+while [ $i = 1 ]
+do
 read -r -p "Nommez le dossier où vous voulez enregistrer le projet ? " workingdirectory
-
-
 if [[ ! -d "$workingdirectory" ]]
 then
         if [[ ! -L $workingdirectory ]]
         then
-                read -r -p "Le dossier n'existe pas. Voulez-vous le créer [y/n]?" reponse
+                read -r -p "Le dossier n'existe pas. Voulez-vous le créer [y/n]? : " reponse
                 case "$reponse" in
-                    oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) mkdir $workingdirectory echo "[x]Dossier créé";;
-                    non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" i=0;;
-                    *) echo "Error syntax !" i=0;;
+                    oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) i=0 ;;
+                    non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" ;;
+                    *) echo "Error syntax !" ;;
                 esac 
         fi
 else
-    echo "Le dossier existe déjà" 
+    read -r -p "Le dossier existe déjà. Voulez-vous l'utiliser ? [y/n] : " use 
+    case "$use" in
+                    oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) i=0 ;;
+                    non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" ;;
+                    *) echo "Error syntax !" ;;
+    esac 
 fi
+done
+
+p=1
+while [ $p = 1 ]
+do
 
 read -r -p "Les fichiers seront enregistrés dans $PWD/$workingdirectory. Voulez-vous continuer ? [Y/N] : " continuer
 
 case "$continuer" in
-        oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) echo "[x]Fichier HTML crée" echo "[x]Fichier Css crée" echo "[x]Fichier Js crée";;
-        non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" i=0;;
-        *) echo "Error syntax !" i=0;;
+        oui | Oui | OUI | o | O | yes | Yes | YES | y | Y ) p=0 ;;
+        non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" ;;
+        *) echo "Error syntax !" ;;
 esac 
+
+done
 
 # La suite (L14) crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
 # et génère la structure de base du site (L15 à L28) en remplissant les balises title et le href du fichier css
@@ -59,3 +73,7 @@ body{
     padding:0;
 }
 EOF
+
+echo "[x] Fichier HTML crée avec succès."
+echo "[x] Fichier CSS crée avec succès."
+echo "[x] Fichier JS crée avec succès."
