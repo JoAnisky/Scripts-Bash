@@ -24,11 +24,11 @@ if [[ ! -d "$workingdirectory" ]]
 then
         if [[ ! -L $workingdirectory ]]
         then
-                read -r -p "Le dossier n'existe pas. Voulez-vous le créer [y/n]? : " reponse
+                read -r -p "Le dossier n'existe pas. Voulez-vous le créer dans $PWD [y/n]? : " reponse
                 case "$reponse" in
                     oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
                     mkdir $workingdirectory
-                    echo "[x]Dossier créé"
+                    echo "[x] Dossier créé"
                     i=0 ;;
                     non | Non | NON | n | N | no | NO | No | n | N ) echo "Retour au choix de dossier" ;;
                     *) echo "Error syntax !" ;;
@@ -50,7 +50,8 @@ read -r -p "Les fichiers seront enregistrés dans $PWD/$workingdirectory. Voulez
 
 case "$continuer" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
-        p=0 ;;
+        p=0
+        mkdir $workingdirectory/images ;;
         non | Non | NON | n | N | no | NO | No | n | N ) 
         echo "Retour au début.";;
         *) 
@@ -87,4 +88,4 @@ EOF
 
 echo "[x] Fichier HTML crée avec succès."
 echo "[x] Fichier CSS crée avec succès."
-echo "[x] Fichier JS crée avec succès."
+echo "[x] Dossier images crée avec succès."
