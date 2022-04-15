@@ -1,4 +1,5 @@
 #!bin/bash
+clear
 
     # On commence par récuperer le nom du fichier .html que l'on stocke dans une variable $htmlfilename 
 read -r -p "Entrez un nom pour votre fichier .html (sans ecrire .html) : " htmlfilename
