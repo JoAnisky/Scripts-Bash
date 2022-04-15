@@ -1,8 +1,16 @@
 # Scripts-Bash
 ### HTML_generator :
 
-C'est un script qui permet à l'utilisateur de générer des pages .html et .css de base.
-En l'état il manque une fonctionnalité pour déterminer ou est placé le script sur l'ordinateur de l'utilisateur et afficher le chemin d'accès choisi avec option de confirmation.
+C'est un script qui permet à l'utilisateur de générer des pages .html, .css et .js de base.
+
+##Pistes d'amélioration :
+
+[  ] Création du dossier du projet (si il n'existe pas déjà) 
+[  ] Création d'un sous dossier CSS ou se placera le fichier. Css
+[  ] Création d'un sous dossier js ou se placera le fichier. Js
+[  ] Création d'un sous dossier image 
+[  ] Affichage des fichiers créés au fur et à mesure 
+[  ] Affichage du chemin choisi et validation sinon retour à la définition du chemin
 
 ```bash
 #!bin/bash
