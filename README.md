@@ -3,7 +3,7 @@
 
 C'est un script qui permet à l'utilisateur de générer des pages .html, .css et .js de base.
 
-##Pistes d'amélioration :
+### Pistes d'amélioration :
 
 [  ] Création du dossier du projet (si il n'existe pas déjà) 
 [  ] Création d'un sous dossier CSS ou se placera le fichier. Css
