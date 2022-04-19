@@ -8,8 +8,6 @@ read -r -p "Entrez un nom pour votre fichier .css (sans ecrire .css) : " cssfile
     # On récupère le titre de la page avec la variable $pagetitle qui sera inséré entre les balises <title></title>
 read -r -p "Entrez le titre de votre page html : " pagetitle
     # Et enfin on demande le chemin ou l'utilisateur souhaite enregistrer son fichier. Par défaut on se situe la ou est placé le script 
-    # (POINTS D'AMELIORATION A FAIRE SUR CE SUJET !!!)
-
 
 #ajout d'un while pour demander un dossier de projet. Temps que l'utilisateur n'est pas en accord, on lui redemande.
 p=1
@@ -60,7 +58,7 @@ esac
 
 done
 
-# La suite (L14) crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
+# La suite crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
 # et génère la structure de base du site (L15 à L28) en remplissant les balises title et le href du fichier css
 cat << EOF > $workingdirectory/$htmlfilename.html
 <!DOCTYPE html>
@@ -80,10 +78,11 @@ cat << EOF > $workingdirectory/$htmlfilename.html
 EOF
 # On génère ici la feuille de style .css, en récuperant la variable $cssfilename pour le nom du fichier
 cat << EOF > $workingdirectory/$cssfilename.css
-body{
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    text-decoration:none;
 }
 EOF
 
