@@ -60,6 +60,41 @@ esac
 
 done
 
+read -r -p "Voulez vous créer un sous-dossier JavaScript ? [Y/N] : " js
+
+case "$js" in
+        oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
+        mkdir $workingdirectory/js
+        echo "[x] Dossier JS créé";;
+        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        *) 
+        echo "Error syntax !" ;;
+esac 
+
+read -r -p "Voulez vous créer un sous-dossier php ? [Y/N] : " php
+
+case "$php" in
+        oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
+        mkdir $workingdirectory/php
+        echo "[x] Dossier php créé";;
+        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        *) 
+        echo "Error syntax !" ;;
+esac 
+
+read -r -p "Voulez vous créer un sous-dossier FONTS ? [Y/N] : " fonts 
+
+case "$fonts" in
+        oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
+        mkdir $workingdirectory/fonts
+        echo "[x] Dossier fonts créé";;
+        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        *) 
+        echo "Error syntax !" ;;
+esac 
+
+mkdir $workingdirectory/css
+
 # La suite (L14) crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
 # et génère la structure de base du site (L15 à L28) en remplissant les balises title et le href du fichier css
 cat << EOF > $workingdirectory/$htmlfilename.html
@@ -79,7 +114,7 @@ cat << EOF > $workingdirectory/$htmlfilename.html
 </html>
 EOF
 # On génère ici la feuille de style .css, en récuperant la variable $cssfilename pour le nom du fichier
-cat << EOF > $workingdirectory/$cssfilename.css
+cat << EOF > $workingdirectory/css/$cssfilename.css
 body{
     margin:0;
     padding:0;
