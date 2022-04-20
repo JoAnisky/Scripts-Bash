@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 clear
 
     # On commence par récuperer le nom du fichier .html que l'on stocke dans une variable $htmlfilename 
@@ -19,7 +19,7 @@ do
 i=1
 while [ $i = 1 ]
 do
-read -r -p "Nommez le dossier où vous voulez enregistrer le projet. " workingdirectory
+read -r -p "Nommez le dossier où vous voulez enregistrer le projet. $PWD/ " workingdirectory
 if [[ ! -d "$workingdirectory" ]]
 then
         if [[ ! -L $workingdirectory ]]
