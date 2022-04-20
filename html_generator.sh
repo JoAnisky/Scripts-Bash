@@ -60,39 +60,57 @@ esac
 
 done
 
+while true
+do
+
 read -r -p "Voulez vous créer un sous-dossier JavaScript ? [Y/N] : " js
 
 case "$js" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
         mkdir $workingdirectory/js
         echo "[x] Dossier JS créé"
-        read -r -p "Entrez un nom pour votre fichier .js (sans écrire le .js) : " jsfilename ;;
-        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        read -r -p "Entrez un nom pour votre fichier .js (sans écrire le .js) : " jsfilename
+        break ;;
+        non | Non | NON | n | N | no | NO | No | n | N )
+        break ;;
         *) 
         echo "Error syntax !" ;;
 esac 
+done
+
+while true
+do
 
 read -r -p "Voulez vous créer un sous-dossier php ? [Y/N] : " php
 
 case "$php" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
         mkdir $workingdirectory/php
-        echo "[x] Dossier php créé";;
-        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        echo "[x] Dossier php créé"
+        break;;
+        non | Non | NON | n | N | no | NO | No | n | N )
+        break ;;
         *) 
         echo "Error syntax !" ;;
 esac 
+done
+
+while true 
+do
 
 read -r -p "Voulez vous créer un sous-dossier FONTS ? [Y/N] : " fonts 
 
 case "$fonts" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
         mkdir $workingdirectory/fonts
-        echo "[x] Dossier fonts créé";;
-        non | Non | NON | n | N | no | NO | No | n | N ) ;;
+        echo "[x] Dossier fonts créé"
+        break;;
+        non | Non | NON | n | N | no | NO | No | n | N ) 
+        break;;
         *) 
         echo "Error syntax !" ;;
 esac 
+done
 
 mkdir $workingdirectory/css
 
