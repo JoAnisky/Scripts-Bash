@@ -71,10 +71,10 @@ cat << EOF > $workingdirectory/$htmlfilename.html
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="$cssfilename.css" />
-        <script src='index.js' async></script>
     </head>
 <body>
     <h1></h1>
+    <script src='index.js' defer></script>
 </body>
 </html>
 EOF
@@ -83,6 +83,7 @@ cat << EOF > $workingdirectory/$cssfilename.css
 body{
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 EOF
 
