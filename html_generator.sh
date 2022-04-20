@@ -46,7 +46,7 @@ done
 
 #ajout d'une autre boucle while, pour la confirmation ultime
 
-read -r -p "Les fichiers seront enregistrés dans $PWD/$workingdirectory. Voulez-vous continuer ? [Y/N] : " continuer
+read -r -p "On utilisera le chemin suivant pour la création des fichiers : $PWD/$workingdirectory. Voulez-vous continuer ? [Y/N] : " continuer
 
 case "$continuer" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
@@ -65,7 +65,8 @@ read -r -p "Voulez vous créer un sous-dossier JavaScript ? [Y/N] : " js
 case "$js" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
         mkdir $workingdirectory/js
-        echo "[x] Dossier JS créé";;
+        echo "[x] Dossier JS créé"
+        read -r -p "Entrez un nom pour votre fichier .js (sans écrire le .js) : " jsfilename ;;
         non | Non | NON | n | N | no | NO | No | n | N ) ;;
         *) 
         echo "Error syntax !" ;;
@@ -109,7 +110,7 @@ cat << EOF > $workingdirectory/$htmlfilename.html
     </head>
 <body>
     <h1></h1>
-    <script src='index.js' defer></script>
+    <script src='$jsfilename.js' defer></script>
 </body>
 </html>
 EOF
@@ -123,5 +124,6 @@ body{
 EOF
 
 echo "[x] Fichier HTML crée avec succès."
+echo "[x] Dossier CSS crée avec succès."
 echo "[x] Fichier CSS crée avec succès."
 echo "[x] Dossier images crée avec succès."
