@@ -63,7 +63,7 @@ done
 while true
 do
 
-read -r -p "Voulez vous créer un sous-dossier JavaScript ? [Y/N] : " js
+read -r -p "Voulez vous créer un sous-dossier JavaScript ? : " js
 
 case "$js" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
@@ -81,7 +81,7 @@ done
 while true
 do
 
-read -r -p "Voulez vous créer un sous-dossier php ? [Y/N] : " php
+read -r -p "Voulez vous créer un sous-dossier php ? : " php
 
 case "$php" in
         oui | Oui | OUI | o | O | yes | Yes | YES | y | Y )
@@ -124,11 +124,11 @@ cat << EOF > $workingdirectory/$htmlfilename.html
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="$cssfilename.css" />
+        <link rel="stylesheet" href="css/$cssfilename.css" />
     </head>
 <body>
     <h1></h1>
-    <script src='$jsfilename.js' defer></script>
+    <script src='js/$jsfilename.js' defer></script>
 </body>
 </html>
 EOF
