@@ -176,6 +176,9 @@ EOF
     }
 EOF
 
+cat << EOF > $workingdirectory/js/$jsfilename.js
+EOF
+
     echo "[x] Fichier HTML crée avec succès."
     echo "[x] Dossier CSS crée avec succès."
     echo "[x] Fichier CSS crée avec succès."
@@ -261,6 +264,9 @@ EOF
         padding:0;
         box-sizing:border-box;
     }
+EOF
+
+cat << EOF > js/$jsfilename.js
 EOF
 
     echo "[x] Fichier HTML crée avec succès."
