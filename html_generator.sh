@@ -151,7 +151,7 @@ then
 
     # La suite (L14) crée un fichier avec le chemin et le nom de fichier choisi (par défaut .html)
     # et génère la structure de base du site (L15 à L28) en remplissant les balises title et le href du fichier css
-cat << EOF > $workingdirectory/$htmlfilename.html
+    cat << EOF > $workingdirectory/$htmlfilename.html
     <!DOCTYPE html>
     <html lang="fr">
         <head>
@@ -160,15 +160,15 @@ cat << EOF > $workingdirectory/$htmlfilename.html
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <link rel="stylesheet" href="css/$cssfilename.css" />
+            <script src='js/$jsfilename.js' defer></script>
         </head>
     <body>
         <h1></h1>
-        <script src='js/$jsfilename.js' defer></script>
     </body>
     </html>
 EOF
     # On génère ici la feuille de style .css, en récuperant la variable $cssfilename pour le nom du fichier
-cat << EOF > $workingdirectory/css/$cssfilename.css
+    cat << EOF > $workingdirectory/css/$cssfilename.css
     body{
         margin:0;
         padding:0;
@@ -250,15 +250,15 @@ else
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <link rel="stylesheet" href="css/$cssfilename.css" />
+            <script src='js/$jsfilename.js' defer></script>
         </head>
     <body>
         <h1></h1>
-        <script src='js/$jsfilename.js' defer></script>
     </body>
     </html>
 EOF
     # On génère ici la feuille de style .css, en récuperant la variable $cssfilename pour le nom du fichier
-cat << EOF > css/$cssfilename.css
+    cat << EOF > css/$cssfilename.css
     body{
         margin:0;
         padding:0;
